@@ -8,6 +8,17 @@ from openai import OpenAI
 
 st.set_page_config(page_title="Football Talent Evaluator", layout="wide")
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+# 🔒 Hide Streamlit branding and profile pic
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    .viewerBadge_link__1S137 {display: none !important;}
+    .css-1r6slb0.egzxvld1 {display: none !important;} /* Hides profile image */
+    .css-164nlkn {display: none !important;} /* Hides the Streamlit crown logo */
+    </style>
+    """, unsafe_allow_html=True)
 
 # === Reference Market Values (for verification)
 reference_values = {
