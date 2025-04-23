@@ -51,7 +51,7 @@ df['League'] = "Uploaded League"
 features = ['xG', 'Assists', 'Goals', 'Dribbles', 'Interceptions', 'PassingAccuracy', 'Market_Value_SAR']
 X = df[features]
 y = df['Market_Value_SAR'] * random.uniform(1.05, 1.15)
-model = XGBoostRegressor(objective='reg:squarederror')
+model = XGBRegressor(objective='reg:squarederror')
 model.fit(X, y)
 df['Predicted_Year_1'] = model.predict(X)
 df['Predicted_Year_2'] = df['Predicted_Year_1'] * 1.05
