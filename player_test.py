@@ -11,14 +11,33 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 # 🔒 Hide Streamlit branding and profile pic
 st.markdown("""
     <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    .viewerBadge_link__1S137 {display: none !important;}
-    .css-1r6slb0.egzxvld1 {display: none !important;} /* Hides profile image */
-    .css-164nlkn {display: none !important;} /* Hides the Streamlit crown logo */
+    /* Hide Streamlit main menu, header, and footer */
+    #MainMenu, header, footer {
+        visibility: hidden;
+    }
+
+    /* Hide bottom-right Streamlit crown icon (branding) */
+    .css-164nlkn, .viewerBadge_link__1S137 {
+        display: none !important;
+    }
+
+    /* Hide user profile circle (bottom right) */
+    .css-1r6slb0.egzxvld1, .css-1dp5vir {
+        display: none !important;
+    }
+
+    /* Hide 'Created by' and profile at the bottom */
+    .st-emotion-cache-zq5wmm.ezrtsby0, .st-emotion-cache-1dp5vir {
+        display: none !important;
+    }
+
+    /* Hide 'Hosted with Streamlit' footer bar */
+    .st-emotion-cache-30xxz9 {
+        display: none !important;
+    }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
+
 
 # === Reference Market Values (for verification)
 reference_values = {
