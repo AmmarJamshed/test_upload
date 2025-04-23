@@ -6,37 +6,35 @@ import altair as alt
 from sklearn.ensemble import RandomForestRegressor
 from openai import OpenAI
 
-st.set_page_config(page_title="Football Talent Evaluator", layout="wide")
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-# 🔒 Hide Streamlit branding and profile pic
+st.set_page_config(page_title="Football Talent Evaluator", layout="wide")
 st.markdown("""
-    <style>
-    /* Hide Streamlit main menu, header, and footer */
-    #MainMenu, header, footer {
-        visibility: hidden;
-    }
-
-    /* Hide bottom-right Streamlit crown icon (branding) */
-    .css-164nlkn, .viewerBadge_link__1S137 {
-        display: none !important;
-    }
-
-    /* Hide user profile circle (bottom right) */
-    .css-1r6slb0.egzxvld1, .css-1dp5vir {
-        display: none !important;
-    }
-
-    /* Hide 'Created by' and profile at the bottom */
-    .st-emotion-cache-zq5wmm.ezrtsby0, .st-emotion-cache-1dp5vir {
-        display: none !important;
-    }
-
-    /* Hide 'Hosted with Streamlit' footer bar */
-    .st-emotion-cache-30xxz9 {
-        display: none !important;
-    }
-    </style>
+<style>
+.stApp {
+    background: linear-gradient(to bottom, #5CC6FF, #F0F8FF),
+                url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABoElEQVR4Ae3XsY3DMBCA4ddN98r4X1gEFgZkswhZhWCNv7sUpCbO3ZzSzQx9H4C9GpKJgcEzzgUAZUR1Mfd5aRifN3AxacJbIE4AmkCkUGYGdoFNYNH8DKbgPewTcTAK2BlGPKDpN8MM0ZDHtOZ/NVbpnOQk32Fw5HE6yqX41BPO2q7Kb+8wFv+qRTbiKSP3g3Je52vMfgn9ZjNQzjAUQtrGpCBMWnsmw5NHrU+fO6sARtCE0AI1PIuESRP6zItbSGQwiXnsiqSmSm8RxXLPiJHwvgWLU4XpzZLz8UEBd0jEVF92/7RXgblED4V0vwiXSn5lwM+9FOEjBLJHw2ScApmEVZAfA3AUtD+lN9y9S6O98nJNGO47y4X3gIuH0f2PXwTLieV3UQZZ14z0gzyAdgDEx9mDnhvZBQAAAABJRU5ErkJggg==");
+    background-repeat: repeat;
+    background-size: 120px;
+    background-blend-mode: lighten;
+    opacity: 0.95;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+h1, h2, h3 {
+    text-align: center;
+    color: #333333;
+}
+.card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: #333333;
+}
+</style>
 """, unsafe_allow_html=True)
+
+st.title("⚽ Football Talent Evaluator")
 
 
 # === Reference Market Values (for verification)
