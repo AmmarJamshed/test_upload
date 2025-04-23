@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import random
 import altair as alt
-from xgboost import XGBRegressor
+from sklearn.ensemble import RandomForestRegressor
 from openai import OpenAI
 
 st.set_page_config(page_title="Custom Player Evaluator", layout="wide")
@@ -51,7 +51,7 @@ df['League'] = "Uploaded League"
 features = ['xG', 'Assists', 'Goals', 'Dribbles', 'Interceptions', 'PassingAccuracy', 'Market_Value_SAR']
 X = df[features]
 y = df['Market_Value_SAR'] * random.uniform(1.05, 1.15)
-model = XGBRegressor(objective='reg:squarederror')
+model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X, y)
 df['Predicted_Year_1'] = model.predict(X)
 df['Predicted_Year_2'] = df['Predicted_Year_1'] * 1.05
