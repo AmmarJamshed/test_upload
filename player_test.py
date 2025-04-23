@@ -10,6 +10,26 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 st.set_page_config(page_title="Football Talent Evaluator", layout="wide")
 st.markdown("""
     <style>
+    /* Hide Streamlit main menu, footer, and header */
+    #MainMenu, header, footer {
+        visibility: hidden;
+    }
+
+    /* Hide bottom-right "Created by" badge & profile icon */
+    .viewerBadge_link__1S137 {display: none !important;}
+    .st-emotion-cache-1dp5vir, .st-emotion-cache-zq5wmm, .st-emotion-cache-30xxz9 {
+        display: none !important;
+    }
+
+    /* Also target some alternate profile icon containers */
+    .css-1r6slb0.egzxvld1, .css-164nlkn, .css-1dp5vir {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
