@@ -35,6 +35,25 @@ h1, h2, h3 {
 """, unsafe_allow_html=True)
 
 st.title("⚽ Football Talent Evaluator")
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+
+    /* Hide Streamlit bottom-right badge and profile */
+    .viewerBadge_link__1S137 {display: none !important;}
+    .css-164nlkn {display: none !important;}  /* Hosted with Streamlit */
+    .css-1dp5vir, .css-1r6slb0, .st-emotion-cache-1dp5vir, .st-emotion-cache-zq5wmm {
+        display: none !important;
+    }
+
+    /* Hide footer bar container */
+    .st-emotion-cache-30xxz9 {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 
 # === Reference Market Values (for verification)
